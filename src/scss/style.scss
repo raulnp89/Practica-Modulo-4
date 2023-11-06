@@ -24,16 +24,15 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 40px;
-  position: sticky;
+  padding: 20px;
+  padding-block: 50px;
   top: 0;
-  padding-left: 50px;
-  padding-right: 50px;
   color: white;
   text-transform: uppercase;
   font-weight: bold;
-  z-index: 50;
+  z-index: 10;
   background-color: rgb(26, 29, 36);
+  width: 100%;
 }
 .logo-header {
   display: flex;

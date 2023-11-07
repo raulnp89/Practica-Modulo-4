@@ -1,7 +1,7 @@
 import { movies } from "../data/movies";
 import { getMoviePosterUrl } from "../utils/movie-utils";
 export {createMovieGrid};
-
+export {showGrid};
 
 
 function createPosterGrid(path) {
@@ -78,3 +78,17 @@ for (let i = 0; i < sortedMovies.length; i++) {
 
 
 document.querySelector("#root").appendChild(movieContainer);
+
+
+const buttonGrid = document.getElementById("#button-grid");
+
+
+
+document.querySelector("#button-grid").addEventListener("click", () => {
+  showGrid();
+});
+
+function showGrid() {
+  document.querySelector(".movie-container-list").style.display = "none";
+  document.querySelector(".movie-container-grid").style.display = "flex";
+}

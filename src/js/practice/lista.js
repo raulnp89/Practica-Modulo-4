@@ -1,6 +1,7 @@
 import { movies } from "../data/movies";
 import { getMoviePosterUrl } from "../utils/movie-utils";
 export {createMovieList};
+export {showList};
 
 
 function createPosterList(path) {
@@ -98,3 +99,14 @@ for (let i = 0; i < sortedMovies.length; i++) {
 }
 
 document.querySelector("#root").appendChild(movieContainer);
+
+
+const buttonList = document.getElementById("#button-list");
+
+document.querySelector("#button-list").addEventListener("click", () => {
+  showList();
+});
+function showList() {
+  document.querySelector(".movie-container-list").style.display = "block";
+  document.querySelector(".movie-container-grid").style.display = "none";
+}

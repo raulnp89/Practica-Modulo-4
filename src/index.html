@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="scss/" />
   </head>
   <body class="gris">
-
     <header class="header layout-box">
       <div class="logo-header">
         <img
@@ -41,7 +40,7 @@
         </ul>
       </nav>
       <nav class="tool-header">
-        <search class="search-header">
+        <search id="search-header">
           <button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -119,37 +118,49 @@
       </nav>
     </header>
 
-    <section class="formato-botones gris">
-      <div>
-        <button id="button-list">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="30px"
-            viewBox="0 -960 960 960"
-            width="30px"
-          >
-            <path
-              d="M280-600v-80h560v80H280Zm0 160v-80h560v80H280Zm0 160v-80h560v80H280ZM160-600q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640q0 17-11.5 28.5T160-600Zm0 160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440Zm0 160q-17 0-28.5-11.5T120-320q0-17 11.5-28.5T160-360q17 0 28.5 11.5T200-320q0 17-11.5 28.5T160-280Z"
-            />
-          </svg>
-        </button>
-      </div>
+    <div class="funcionalidades layout-box">
+      <section class="filter-categories">
+        <select name="category" id="movie-category"></select>
+      </section>
 
-      <div>
-        <button id="button-grid">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="30px"
-            viewBox="0 -960 960 960"
-            width="30px"
-          >
-            <path
-              d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520ZM200-600h160v-160H200v160Zm400 0h160v-160H600v160Zm0 400h160v-160H600v160Zm-400 0h160v-160H200v160Zm400-400Zm0 240Zm-240 0Zm0-240Z"
-            />
-          </svg>
-        </button>
-      </div>
-    </section>
+      <section class="formato-botones gris">
+        <div>
+          <button id="button-list">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="30px"
+              viewBox="0 -960 960 960"
+              width="30px"
+            >
+              <path
+                d="M280-600v-80h560v80H280Zm0 160v-80h560v80H280Zm0 160v-80h560v80H280ZM160-600q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640q0 17-11.5 28.5T160-600Zm0 160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440Zm0 160q-17 0-28.5-11.5T120-320q0-17 11.5-28.5T160-360q17 0 28.5 11.5T200-320q0 17-11.5 28.5T160-280Z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div>
+          <button id="button-grid">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="30px"
+              viewBox="0 -960 960 960"
+              width="30px"
+            >
+              <path
+                d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520ZM200-600h160v-160H200v160Zm400 0h160v-160H600v160Zm0 400h160v-160H600v160Zm-400 0h160v-160H200v160Zm400-400Zm0 240Zm-240 0Zm0-240Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="filter-categories">
+        <select name="filtros" id="search-filter">
+          <option value="0" selected>Sort by:</option>
+        </select>
+      </section>
+    </div>
     <div id="root"></div>
     <script src="/src/js/practice/practice1.js"></script>
     <div class="gris">

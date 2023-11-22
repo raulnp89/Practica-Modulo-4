@@ -10,7 +10,7 @@
   all: unset;
   display: revert;
 }
-li {
+* li {
   list-style-type: none;
 }
 .gris {
@@ -55,16 +55,7 @@ li {
   cursor: pointer;
   border-bottom: 1px solid red;
 }
-#search-header {
-  display: flex;
-  gap: 20px;
-  cursor: pointer;
-  fill: white;
-  text-transform: initial;
-}
-#search-header:hover{
-  fill: red;
-}
+
 .social-header {
   display: flex;
   justify-content: space-between;

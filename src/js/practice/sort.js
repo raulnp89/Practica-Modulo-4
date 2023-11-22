@@ -1,20 +1,24 @@
 import { categories } from "../data/movie-categories";
-export { addSort };
+import { createMovieGrid } from "./grid";
+import { showGrid } from "./grid";
+import { createMovieList } from "./lista";
+import { showList } from "./lista";
+import { isListView } from "./practice1";
+import { copiaMovies } from "./practice1";
 
 /**************************Sort by****************************************** */
 
-const sortBy = document.getElementById("search-filter");
-
-function addSort() {
+export function addSort(sortBy) {
   const optionsData = [
-    { text: "Title alphabetically in ascending order.", value: "title-asc" },
-    { text: "Title alphabetically in descending order.", value: "title-desc" },
+    { text: "Sort by:", value: "sort-by" },
+    { text: "Title alphabetically A-Z.", value: "title-asc" },
+    { text: "Title alphabetically Z-A.", value: "title-desc" },
     {
-      text: "Director alphabetically in ascending order.",
+      text: "Director alphabetically A-Z.",
       value: "director-asc",
     },
     {
-      text: "Director alphabetically in descending order.",
+      text: "Director alphabetically Z-A.",
       value: "director-desc",
     },
     { text: "Year in ascending order.", value: "year-asc" },
@@ -29,4 +33,47 @@ function addSort() {
   });
 }
 
-addSort();
+export function ordenarPeliculas(copiaMovies, criterio) {
+  copiaMovies.sort((a, b) => {
+    let valorA, valorB;
+
+    switch (criterio) {
+      case "title-asc":
+        valorA = a.title;
+        valorB = b.title;
+        break;
+      case "title-desc":
+        valorA = b.title;
+        valorB = a.title;
+        break;
+      case "director-asc":
+        valorA = a.director;
+        valorB = b.director;
+        break;
+      case "director-desc":
+        valorA = b.director;
+        valorB = a.director;
+        break;
+      case "year-asc":
+        valorA = a.year;
+        valorB = b.year;
+        break;
+      case "year-desc":
+        valorA = b.year;
+        valorB = a.year;
+        break;
+      default:
+        return 0;
+    }
+
+    if (valorA < valorB) {
+      return -1;
+    }
+    if (valorA > valorB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  return copiaMovies;
+}

@@ -1,13 +1,9 @@
-import { movies } from "../data/movies";
 import { getMoviePosterUrl } from "../utils/movie-utils";
-export {createMovieGrid};
-export {showGrid};
-
+export { createMovieGrid };
 
 function createPosterGrid(path) {
-  const moviePosterWidth = 400;
   const element = document.createElement("img");
-  element.src = getMoviePosterUrl(path, moviePosterWidth);
+  element.src = getMoviePosterUrl(path);
   element.className = "grid-poster";
   return element;
 }
@@ -62,33 +58,16 @@ function createMovieGrid(movieObj) {
   return movieElement;
 }
 
-function sortMovies(movies) {
-  return movies.sort((a, b) => a.title.localeCompare(b.title));
-}
+export function showGrid(copiaMovies) {
+  document.querySelector("#root").innerHTML = "";
 
-const movieContainer = document.createElement("div");
-movieContainer.className = "movie-container-grid";
-const sortedMovies = sortMovies(movies);
+  const movieContainer = document.createElement("div");
+  movieContainer.className = "movie-container-grid";
 
-for (let i = 0; i < sortedMovies.length; i++) {
-  const movie = sortedMovies[i];
-  const movieElement = createMovieGrid(movie);
-  movieContainer.appendChild(movieElement);
-}
+  for (let i = 0; i < copiaMovies.length; i++) {
+    const movieElement = createMovieGrid(copiaMovies[i]);
+    movieContainer.appendChild(movieElement);
+  }
 
-
-document.querySelector("#root").appendChild(movieContainer);
-
-
-const buttonGrid = document.getElementById("#button-grid");
-
-
-
-document.querySelector("#button-grid").addEventListener("click", () => {
-  showGrid();
-});
-
-function showGrid() {
-  document.querySelector(".movie-container-list").style.display = "none";
-  document.querySelector(".movie-container-grid").style.display = "flex";
+  document.querySelector("#root").appendChild(movieContainer);
 }

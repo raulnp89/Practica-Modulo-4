@@ -1,16 +1,12 @@
 import { categories } from "../data/movie-categories";
-export {buscador}
+import { movies } from "../data/movies";
+import { showGrid } from "./grid";
+import { showList } from "./lista";
 
-/***********************Buscador*************************************/
-
-const searchButton = document.getElementById("search-header");
-searchButton.addEventListener("click", buscador());
-
-function buscador() {
-  const element = document.createElement("input");
-  element.type = "text";
-  element.placeholder = "Search: ";
-
-  const container = document.getElementById("search-header");
-  container.appendChild(element);
+export function mostrarResultadosBusqueda(movies, isListView) {
+  if (isListView) {
+    showList(movies);
+  } else {
+    showGrid(movies);
+  }
 }

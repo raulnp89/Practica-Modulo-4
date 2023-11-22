@@ -1,8 +1,5 @@
-import { movies } from "../data/movies";
 import { getMoviePosterUrl } from "../utils/movie-utils";
-export {createMovieList};
-export {showList};
-
+export { createMovieList };
 
 function createPosterList(path) {
   const moviePosterWidth = 400;
@@ -84,29 +81,23 @@ function createMovieList(movieObj) {
   return movieElement;
 }
 
-function sortMovies(movies) {
-  return movies.sort((a, b) => a.title.localeCompare(b.title));
-}
+// function sortMovies(copiaMovies) {
+//   return copiaMovies.sort((a, b) => a.title.localeCompare(b.title));
+// }
 
-const movieContainer = document.createElement("div");
-movieContainer.className = "movie-container-list";
-const sortedMovies = sortMovies(movies);
+export function showList(copiaMovies) {
+  document.querySelector("#root").innerHTML = "";
 
-for (let i = 0; i < sortedMovies.length; i++) {
-  const movie = sortedMovies[i];
-  const movieElement = createMovieList(movie);
-  movieContainer.appendChild(movieElement);
-}
+  const movieContainer = document.createElement("div");
+  movieContainer.className = "movie-container-list";
 
-document.querySelector("#root").appendChild(movieContainer);
+  // const sortedMovies = sortMovies(copiaMovies);
 
+  for (let i = 0; i < copiaMovies.length; i++) {
+    // const copiaMovies = sortedMovies[i];
+    const movieElement = createMovieList(copiaMovies[i]);
+    movieContainer.appendChild(movieElement);
+  }
 
-const buttonList = document.getElementById("#button-list");
-
-document.querySelector("#button-list").addEventListener("click", () => {
-  showList();
-});
-function showList() {
-  document.querySelector(".movie-container-list").style.display = "block";
-  document.querySelector(".movie-container-grid").style.display = "none";
+  document.querySelector("#root").appendChild(movieContainer);
 }
